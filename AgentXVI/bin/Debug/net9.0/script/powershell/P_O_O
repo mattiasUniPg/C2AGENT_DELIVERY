@@ -1,0 +1,4 @@
+$filePath = "C:\Temp\file_da_inviare.exe"
+$url = "http://192.168.1.10:8080/"
+
+Invoke-RestMethod -Uri $url -Method Post -InFile $filePath -ContentType "application/octet-stream"

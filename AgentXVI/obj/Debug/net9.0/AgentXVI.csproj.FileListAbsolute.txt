@@ -1,0 +1,14 @@
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\bin\Debug\net9.0\AgentXVI.exe
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\bin\Debug\net9.0\AgentXVI.deps.json
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\bin\Debug\net9.0\AgentXVI.runtimeconfig.json
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\bin\Debug\net9.0\AgentXVI.dll
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\bin\Debug\net9.0\AgentXVI.pdb
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\obj\Debug\net9.0\AgentXVI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\obj\Debug\net9.0\AgentXVI.AssemblyInfoInputs.cache
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\obj\Debug\net9.0\AgentXVI.AssemblyInfo.cs
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\obj\Debug\net9.0\AgentXVI.csproj.CoreCompileInputs.cache
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\obj\Debug\net9.0\AgentXVI.dll
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\obj\Debug\net9.0\refint\AgentXVI.dll
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\obj\Debug\net9.0\AgentXVI.pdb
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\obj\Debug\net9.0\AgentXVI.genruntimeconfig.cache
+C:\Users\zibet\.vscode\AgentXVI\AgentXVI\obj\Debug\net9.0\ref\AgentXVI.dll
